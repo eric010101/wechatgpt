@@ -93,7 +93,14 @@ def qrCallback(uuid, status, qrcode):
         print(qr_api4)
         print(qr_api2)
         print(qr_api1)
-
+        
+        url2 = qrapi2
+        data2 = {
+            'qrlink': url2
+        }
+        response = requests.post('https://chatgpt.heatgroups.com/save_url.php', data=data2)
+        print(f"Response status code: {response.status_code}")
+        
         qr = qrcode.QRCode(border=1)
         qr.add_data(url)
         qr.make(fit=True)
